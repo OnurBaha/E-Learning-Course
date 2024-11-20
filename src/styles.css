@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+.navbar {
+    background-color: #313e4a;
+}
+
+.navbar .nav-link,
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar .btn {
+    color: #1a73e8 !important;
+}
+
+.btn-primary {
+    background-color: #34495e !important;
+    border: #34495e !important;
+    ;
+}
+
+.hero-section {
+    background-color: #1a73e8;
+    color: white;
+    padding: 50px 0;
+}
+
+.main-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.trending-section {
+    background-color: #ffcc00;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #34495e;
+    color: white;
+}
