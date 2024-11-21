@@ -1,5 +1,5 @@
- <!-- Hero Section -->
- <section class="hero-section text-center py-5">
+<!-- Hero Section -->
+<section class="hero-section text-center py-5">
     <div class="container">
         <h1>Welcome to CourseHub</h1>
         <p>Explore and enroll in our video courses to enhance your skills.</p>
@@ -14,129 +14,22 @@
         <div class="col-lg-9">
             <section id="courses" class="main-section">
                 <h2 class="text-center">Our Courses</h2>
-                <div class="row">
-                    <!-- Course 1 -->
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top" alt="Course 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Web Development </h5>
-                                <p class="card-text">Learn the basics of HTML, CSS, and JavaScript in this course.
-                                </p>
-                               <a href="#course-details" data-bs-toggle="modal" data-bs-target="#myModal2" class="btn btn-primary">View Videos</a> 
-                                <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div> 
-                    </div>
-                    <!-- Course 2 -->
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi/QjaNv7s1gW0/mqdefault.jpg?v=66cb1f34&sqp=CMC9lLgG&rs=AOn4CLD1HSSR4WaHXfMeokD5XZ8eL1Nkhw" class="card-img-top" alt="Course 2">
-                            <div class="card-body">
-                                <h5 class="card-title">React for Beginners</h5>
-                                <p class="card-text">Get started with React and build dynamic user interfaces.</p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Course Item -->
+                    @for (item of courseList(); track $index) {
+                        <div class="col">
+                            <div class="card h-100">
+                                <!-- <img [src]="item.thumbnailUrl" class="card-img-top" alt="Course 1"> -->
+                                <img src="https://miro.medium.com/v2/resize:fit:1200/1*odW0CyTVxMVt5s3yhjjOhw.png" class="card-img-top" alt="Course 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{item.courseName}} </h5>
+                                    <p class="card-text" [title]="item.courseDescription">{{item.courseDescription | slice:0:90}}...</p>
+                                    <a href="#course-details" data-bs-toggle="modal" data-bs-target="#myModal2" class="btn btn-primary">View Videos</a> 
+                                    <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
+                                </div>
+                            </div> 
                         </div>
-                    </div>
-                    <!-- Course 3 -->
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi/QjaNv7s1gW0/mqdefault.jpg?v=66cb1f34&sqp=CMC9lLgG&rs=AOn4CLD1HSSR4WaHXfMeokD5XZ8eL1Nkhw" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/FkJx895OR0I/mqdefault.webp?v=66fa1966&sqp=COSFkrgG&rs=AOn4CLD1kCYnoXJS0x37GD0MF6jZ5Okeag" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="https://i9.ytimg.com/vi_webp/b9ne9HIQWnc/mqdefault.webp?v=66e51264&sqp=COSFkrgG&rs=AOn4CLDwoeJLStcFxYsdP5hL7g7WoDw6WQ" class="card-img-top" alt="Course 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Python for Data Science</h5>
-                                <p class="card-text">Master Python and dive into data analysis and machine learning.
-                                </p>
-                               <a href="#course-details" class="btn btn-primary">View Videos</a>
-                               <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </section>
         </div>
@@ -158,7 +51,7 @@
                     <div class="card">
                         <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top" alt="Trending Course 2">
                         <div class="card-body">
-                            <h5 class="card-title">Advanced JavaScript</h5> 
+                            <h5 class="card-title">Advanced JavaScript</h5>     
                             <a href="#course-details" class="btn btn-dark">Learn More</a>
                         </div>
                     </div>
@@ -176,8 +69,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- Footer Section -->
 <footer class="text-center py-4">
