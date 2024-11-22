@@ -1,12 +1,12 @@
 import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { MasterService } from '../../services/master.service';
 import { IApiResponse, Icourse, Icoursevideos, Video } from '../../model/master.model';
-import { SlicePipe } from '@angular/common';
+import { NgFor, NgIf, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SlicePipe],
+  imports: [SlicePipe, NgFor, NgIf],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -46,12 +46,21 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getCourseVideos(courseId:number){
-    this.masterSrv.getCourseVideosbyCourseId(courseId).subscribe((res:IApiResponse)=>{
-      this.courseVideos  = res.data
-    }, error=>{
-      
-    })
+  getCourseVideos(courseId: number) {
+    this.masterSrv.getCourseVideosbyCourseId(courseId).subscribe((res: IApiResponse) => {
+      if (res.data && res.data.length > 0) {
+        this.courseVideos = res.data;
+      } else {
+        this.errorMessage = 'No videos found for this course.';
+        this.courseVideos = [];  // Boş bir diziyle resetliyoruz
+      }
+    }, error => {
+      this.errorMessage = 'Failed to load videos.';
+      this.courseVideos = [];  // Hata durumunda da boş bir dizi
+      console.error(error);
+    });
   }
+  
+  
 
 }

@@ -90,20 +90,28 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-               <div class="row">
-                @for (item of courseVideos; track $index) {
-                    <div class="col-3">
-                        <div class="card">
-                            <img [src]="item.videoThumbnail" class="card-img-top" alt="Trending Course 3">
-                            <div class="card-body">
-                                <h6 class="card-title">{{item.videoTitle}}</h6>  
-                            </div>
-                        </div>
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                  {{ errorMessage }}
+                </div>
+              
+                <!-- Videolar yoksa, mesajı göster -->
+                <div *ngIf="!errorMessage && courseVideos.length === 0" class="alert alert-warning">
+                  No videos found for this course.
+                </div>
+              
+                <!-- Videolar varsa, kartları göster -->
+                <div class="row" *ngIf="courseVideos.length > 0">
+                  <div *ngFor="let item of courseVideos" class="col-3">
+                    <div class="card">
+                      <img [src]="item.videoThumbnail" class="card-img-top" alt="Video Thumbnail">
+                      <div class="card-body">
+                        <h6 class="card-title">{{ item.videoTitle }}</h6>
+                      </div>
                     </div>
-                }
-
-                
-            </div> 
+                  </div>
+                </div>
+              </div>
+              
         </div>
     </div>
 </div>
