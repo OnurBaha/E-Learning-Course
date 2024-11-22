@@ -24,7 +24,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{item.courseName}} </h5>
                                     <p class="card-text" [title]="item.courseDescription">{{item.courseDescription | slice:0:90}}...</p>
-                                    <a href="#course-details" data-bs-toggle="modal" data-bs-target="#myModal2" class="btn btn-primary">View Videos</a> 
+                                    <a href="#course-details" (click)="openModal(item.courseId)" class="btn btn-primary">View Videos</a> 
                                     <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
                                 </div>
                             </div> 
@@ -76,3 +76,34 @@
         <p>&copy; 2024 CourseHub. All rights reserved.</p>
     </div>
 </footer>
+
+
+<div class="modal" #courseModal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Course Videos</h4>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+               <div class="row">
+                @for (item of courseVideos; track $index) {
+                    <div class="col-3">
+                        <div class="card">
+                            <img [src]="item.videoThumbnail" class="card-img-top" alt="Trending Course 3">
+                            <div class="card-body">
+                                <h6 class="card-title">{{item.videoTitle}}</h6>  
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                
+            </div> 
+        </div>
+    </div>
+</div>

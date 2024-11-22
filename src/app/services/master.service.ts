@@ -15,5 +15,8 @@ export class MasterService {
   getAllCourse(): Observable<IApiResponse>{
     return this.http.get<IApiResponse>(`${this.apiUrl}GetAllCourse`)
   }
+  getCourseVideosbyCourseId(id:number): Observable<IApiResponse>{
+    return this.http.get<IApiResponse>(`${this.apiUrl}GetCourseVideosbyCourseId?courseId=${id}`)
+  }
 
 }

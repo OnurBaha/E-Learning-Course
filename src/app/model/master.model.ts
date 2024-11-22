@@ -4,7 +4,7 @@ export interface IApiResponse {
     data: any
 }
 
-export class userList {
+export class Video {
     videoId: number
     videoUrl: string
     videoTitle: string
@@ -21,6 +21,7 @@ export class userList {
         this.totalDuration = "";
     }
 }
+
 
 export interface Icourse {
     courseId: number,
