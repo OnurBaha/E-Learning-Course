@@ -71,23 +71,23 @@
                         <h2 class="text-center">Register for a Course</h2>
                         <form action="#" method="post" class="w-100 mx-auto">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Full Name</label>
+                                <label for="name"  name="fullName" [(ngModel)]="userRegisterObj.fullName" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" id="name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" name="email" [(ngModel)]="userRegisterObj.emailId"  class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">User Name</label>
+                                <label for="email" name="username" [(ngModel)]="userRegisterObj.userName"  class="form-label">User Name</label>
                                 <input type="text" class="form-control" id="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Password</label>
+                                <label for="email" name="password" [(ngModel)]="userRegisterObj.password"  class="form-label">Password</label>
                                 <input type="text" class="form-control" id="email" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Register Now</button>
+                            <button type="button" (click)="onRegister()" class="btn btn-primary">Register Now</button>
                         </form>
                     </div>
                 </section>
