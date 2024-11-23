@@ -52,11 +52,11 @@ export class HomeComponent implements OnInit {
         this.courseVideos = res.data;
       } else {
         this.errorMessage = 'No videos found for this course.';
-        this.courseVideos = [];  // Boş bir diziyle resetliyoruz
+        this.courseVideos = [];  
       }
     }, error => {
       this.errorMessage = 'Failed to load videos.';
-      this.courseVideos = [];  // Hata durumunda da boş bir dizi
+      this.courseVideos = [];  
       console.error(error);
     });
   }

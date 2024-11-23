@@ -17,18 +17,21 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <!-- Course Item -->
                     @for (item of courseList(); track $index) {
-                        <div class="col">
-                            <div class="card h-100">
-                                <!-- <img [src]="item.thumbnailUrl" class="card-img-top" alt="Course 1"> -->
-                                <img src="https://miro.medium.com/v2/resize:fit:1200/1*odW0CyTVxMVt5s3yhjjOhw.png" class="card-img-top" alt="Course 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{item.courseName}} </h5>
-                                    <p class="card-text" [title]="item.courseDescription">{{item.courseDescription | slice:0:90}}...</p>
-                                    <a href="#course-details" (click)="openModal(item.courseId)" class="btn btn-primary">View Videos</a> 
-                                    <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
-                                </div>
-                            </div> 
+                    <div class="col">
+                        <div class="card h-100">
+                            <!-- <img [src]="item.thumbnailUrl" class="card-img-top" alt="Course 1"> -->
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*odW0CyTVxMVt5s3yhjjOhw.png"
+                                class="card-img-top" alt="Course 1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.courseName}} </h5>
+                                <p class="card-text" [title]="item.courseDescription">{{item.courseDescription |
+                                    slice:0:90}}...</p>
+                                <a href="#course-details" (click)="openModal(item.courseId)"
+                                    class="btn btn-primary">View Videos</a>
+                                <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
+                            </div>
                         </div>
+                    </div>
                     }
                 </div>
             </section>
@@ -40,27 +43,30 @@
                 <h2 class="text-center">Trending Courses</h2>
                 <div class="mb-3">
                     <div class="card">
-                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top" alt="Trending Course 1">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 1">
                         <div class="card-body">
-                            <h5 class="card-title">Full Stack Development</h5> 
+                            <h5 class="card-title">Full Stack Development</h5>
                             <a href="#course-details" class="btn btn-dark">Learn More</a>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="card">
-                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top" alt="Trending Course 2">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 2">
                         <div class="card-body">
-                            <h5 class="card-title">Advanced JavaScript</h5>     
+                            <h5 class="card-title">Advanced JavaScript</h5>
                             <a href="#course-details" class="btn btn-dark">Learn More</a>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="card">
-                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top" alt="Trending Course 3">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 3">
                         <div class="card-body">
-                            <h5 class="card-title">Machine Learning with Python</h5> 
+                            <h5 class="card-title">Machine Learning with Python</h5>
                             <a href="#course-details" class="btn btn-dark">Learn More</a>
                         </div>
                     </div>
@@ -91,27 +97,27 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div *ngIf="errorMessage" class="alert alert-danger">
-                  {{ errorMessage }}
+                    {{ errorMessage }}
                 </div>
-              
-                <!-- Videolar yoksa, mesajı göster -->
+
+                
                 <div *ngIf="!errorMessage && courseVideos.length === 0" class="alert alert-warning">
-                  No videos found for this course.
+                    No videos found for this course.
                 </div>
-              
-                <!-- Videolar varsa, kartları göster -->
+
+                
                 <div class="row" *ngIf="courseVideos.length > 0">
-                  <div *ngFor="let item of courseVideos" class="col-3">
-                    <div class="card">
-                      <img [src]="item.videoThumbnail" class="card-img-top" alt="Video Thumbnail">
-                      <div class="card-body">
-                        <h6 class="card-title">{{ item.videoTitle }}</h6>
-                      </div>
+                    <div *ngFor="let item of courseVideos" class="col-3">
+                        <div class="card">
+                            <img [src]="item.videoThumbnail" class="card-img-top" alt="Video Thumbnail">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ item.videoTitle }}</h6>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              
+            </div>
+
         </div>
     </div>
 </div>

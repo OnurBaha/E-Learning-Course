@@ -11,14 +11,81 @@
                   <a class="nav-link" href="#courses">Courses</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#register" data-bs-toggle="modal"
-                      data-bs-target="#myModal">Register</a>
+                  <a class="nav-link" href="#register" (click)="openModal()">Register</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#register" data-bs-toggle="modal" data-bs-target="#myModal">Login</a>
+                  <a class="nav-link" href="#login" (click)="openModal()">Login</a>
               </li>
           </ul>
       </div>
   </div>
 </nav>
 <router-outlet></router-outlet>
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" (click)="toggleForm(true)">Register</button>
+                    <button type="button" class="btn btn-primary" (click)="toggleForm(false)">Login</button>
+                  </div>
+                                  
+                @if(isLoginFormVisiable){
+                    <section id="login" class="py-1 bg-light">
+                        <div class="container">
+                            <h2 class="text-center">Login to Your Account</h2>
+                            <form action="#" method="post" class="w-100 mx-auto">
+                                <div class="mb-3">
+                                    <label for="emailLogin" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="emailLogin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </section>
+                }
+                @else {
+                    <section id="register" class="py-1 bg-light">
+                        <div class="container">
+                            <h2 class="text-center">Register for a Course</h2>
+                            <form action="#" method="post" class="w-100 mx-auto">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">User Name</label>
+                                    <input type="text" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Password</label>
+                                    <input type="text" class="form-control" id="email" required>
+                                </div>
+                                 
+                                <button type="submit" class="btn btn-primary">Register Now</button>
+                            </form>
+                        </div>
+                    </section>
+                }                
+            </div> 
+        </div>
+    </div>
+</div>

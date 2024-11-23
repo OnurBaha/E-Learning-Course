@@ -9,5 +9,24 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'e-learning-course';
+
+  isLoginFormVisiable : boolean = true;
+  toggleForm(val:boolean){
+    this.isLoginFormVisiable = val;
+  }
+
+  openModal(){
+    event?.preventDefault();
+    const modal = document.getElementById('myModal');
+    if(modal){
+      modal.style.display = 'block';
+    }
+  } 
+
+  closeModal(){
+    const modal = document.getElementById('myModal');
+    if(modal){
+      modal.style.display = 'none';
+    }
+  }
 }
