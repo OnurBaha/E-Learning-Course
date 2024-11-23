@@ -1,24 +1,24 @@
 <nav class="navbar navbar-expand-lg">
-  <div class="container">
-      <a class="navbar-brand" href="#">CourseHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="#courses">Courses</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#register" (click)="openModal()">Register</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#login" (click)="openModal()">Login</a>
-              </li>
-          </ul>
-      </div>
-  </div>
+    <div class="container">
+        <a class="navbar-brand" href="#">CourseHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#courses">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#register" (click)="openModal()">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#login" (click)="openModal()">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 <router-outlet></router-outlet>
 
@@ -35,57 +35,64 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" (click)="toggleForm(true)">Register</button>
-                    <button type="button" class="btn btn-primary" (click)="toggleForm(false)">Login</button>
-                  </div>
-                                  
-                @if(isLoginFormVisiable){
-                    <section id="login" class="py-1 bg-light">
-                        <div class="container">
-                            <h2 class="text-center">Login to Your Account</h2>
-                            <form action="#" method="post" class="w-100 mx-auto">
-                                <div class="mb-3">
-                                    <label for="emailLogin" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailLogin" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Login</button>
-                            </form>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="btn-group">
+                            <button type="button" [class]="isLoginFormVisiable ? 'btn btn-primary': 'btn btn-success' "
+                                (click)="toggleForm(false)">Register</button>
+                            <button type="button" [class]="!isLoginFormVisiable ? 'btn btn-primary': 'btn btn-success' "
+                                (click)="toggleForm(true)">Login</button>
                         </div>
-                    </section>
+                    </div>
+                </div>
+                
+
+                @if(isLoginFormVisiable){
+                <section id="login" class="py-1 bg-light">
+                    <div class="container">
+                        <h2 class="text-center">Login to Your Account</h2>
+                        <form action="#" method="post" class="w-100 mx-auto">
+                            <div class="mb-3">
+                                <label for="emailLogin" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailLogin" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </section>
                 }
                 @else {
-                    <section id="register" class="py-1 bg-light">
-                        <div class="container">
-                            <h2 class="text-center">Register for a Course</h2>
-                            <form action="#" method="post" class="w-100 mx-auto">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">User Name</label>
-                                    <input type="text" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="email" required>
-                                </div>
-                                 
-                                <button type="submit" class="btn btn-primary">Register Now</button>
-                            </form>
-                        </div>
-                    </section>
-                }                
-            </div> 
+                <section id="register" class="py-1 bg-light">
+                    <div class="container">
+                        <h2 class="text-center">Register for a Course</h2>
+                        <form action="#" method="post" class="w-100 mx-auto">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Password</label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Register Now</button>
+                        </form>
+                    </div>
+                </section>
+                }
+            </div>
         </div>
     </div>
 </div>
