@@ -56,6 +56,15 @@ export interface Icoursevideos {
     videoUrl: string
 }
 
+export class Login{
+    userName: string
+    password:string 
+    constructor(){
+        this.userName ='';
+        this.password='';
+    }
+}
+
 export class User{
     userId:number
     userName:string

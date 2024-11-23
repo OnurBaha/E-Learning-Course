@@ -10,12 +10,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#courses">Courses</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#register" (click)="openModal()">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#login" (click)="openModal()">Login</a>
-                </li>
+                @if (loggedUserData.userId == 0) {
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register" (click)="openModal()">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#login" (click)="openModal()">Login</a>
+                    </li>
+                }@else {
+                    <li class="nav-item">
+                        <a class="nav-link">{{loggedUserData.emailId}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-danger" (click)="onlogoff()">Log Off</a>
+                    </li>
+                }
+                
             </ul>
         </div>
     </div>
@@ -54,13 +64,13 @@
                         <form action="#" method="post" class="w-100 mx-auto">
                             <div class="mb-3">
                                 <label for="emailLogin" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="emailLogin" required>
+                                <input type="text" name="userName" [(ngModel)]="loginObj.userName" class="form-control" id="emailLogin" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" required>
+                                <input type="password" name="password" [(ngModel)]="loginObj.password" class="form-control" id="password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="button" (click)="onLogin()" class="btn btn-primary">Login</button>
                         </form>
                     </div>
                 </section>
