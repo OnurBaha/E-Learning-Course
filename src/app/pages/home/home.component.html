@@ -26,9 +26,9 @@
                                 <h5 class="card-title">{{item.courseName}} </h5>
                                 <p class="card-text" [title]="item.courseDescription">{{item.courseDescription |
                                     slice:0:90}}...</p>
-                                <a href="#course-details" (click)="openModal(item.courseId)"
+                                <a (click)="openModal(item.courseId)"
                                     class="btn btn-primary">View Videos</a>
-                                <a href="#course-details" class="btn btn-warning text-end">Enroll</a>
+                                <a (click)="onEnroll(item.courseId)" class="btn btn-warning text-end">Enroll</a>
                             </div>
                         </div>
                     </div>

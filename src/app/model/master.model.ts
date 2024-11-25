@@ -90,3 +90,18 @@ export class User{
         this.userName='';
     }
 }
+
+export class IEnrollment{
+    enrollmentId:number
+    userId:number
+    courseId:number
+    enrollDate:Date
+    isCompleted:boolean
+    constructor(){
+        this.enrollmentId =0;
+        this.courseId=0;
+        this.enrollDate=new Date();
+        this.isCompleted=false;
+        this.userId = 0;
+    }
+}

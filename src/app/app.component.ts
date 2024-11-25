@@ -19,7 +19,6 @@ export class AppComponent {
   loggedUserData: User = new User();
   
   constructor() {
-    // Check if the 'window' object is available (this checks if it's in a browser)
     if (typeof window !== 'undefined' && window.localStorage) {
       const localData = localStorage.getItem('learningUser');
       if (localData != null) {
@@ -64,7 +63,6 @@ export class AppComponent {
     this.masterSrv.onLogin(this.loginObj).subscribe((res: IApiResponse) => {
       if (res.result) {
         alert("User Logged Success");
-        // Only set to localStorage if we're in the browser
         if (typeof window !== 'undefined' && window.localStorage) {
           localStorage.setItem('learningUser', JSON.stringify(res.data));
         }
@@ -78,7 +76,6 @@ export class AppComponent {
 
   onlogoff() {
     this.loggedUserData = new User();
-    // Only remove from localStorage if we're in the browser
     if (typeof window !== 'undefined' && window.localStorage) {
       localStorage.removeItem('learningUser');
     }

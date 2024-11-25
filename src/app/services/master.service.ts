@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IApiResponse, Login, User } from '../model/master.model';
+import { IApiResponse, IEnrollment, Login, User } from '../model/master.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,10 @@ export class MasterService {
 
   onLogin(obj:Login): Observable<IApiResponse>{
     return this.http.post<IApiResponse>(`${this.apiUrl}login`, obj)
+  }
+
+  onEnrollment(obj:IEnrollment): Observable<IApiResponse>{
+    return this.http.post<IApiResponse>(`${this.apiUrl}CreateNewEnrollment`, obj)
   }
 
 }
