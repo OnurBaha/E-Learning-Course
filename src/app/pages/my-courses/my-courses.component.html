@@ -6,7 +6,7 @@
         <!-- Courses Section (Left Side) -->
         <div class="col-lg-9">
             <section id="courses" class="main-section">
-                <h2 class="text-center">Our Courses</h2>
+                <h2 class="text-center">My Courses</h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <!-- Course Item -->
                     @for (item of courseList; track $index) {
@@ -19,7 +19,7 @@
                                 <h5 class="card-title">{{item.courseName}} </h5>
                                 <p class="card-text" [title]="item.courseDescription">{{item.courseDescription |
                                     slice:0:90}}...</p>
-                                <a class="btn btn-primary">Start Learning</a>
+                                <a (click)="navigatingToCourse(item.courseId)" routerLinkActive="router-link-active" class="btn btn-primary">Start Learning</a>
                             </div>
                         </div>
                     </div>

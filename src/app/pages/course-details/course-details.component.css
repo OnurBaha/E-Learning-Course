@@ -1,0 +1,43 @@
+.video-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.sidebar {
+    background-color: #2c3e50;
+    color: white;
+    min-height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+}
+.sidebar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+.sidebar a:hover {
+    background-color: #34495e;
+}
+.video-description {
+    margin-top: 20px;
+}
+footer {
+    background-color: #34495e;
+    color: white;
+    margin-top: 40px;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+@media (max-width: 991.98px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.ratio-16x9 {
+--bs-aspect-ratio: 35.25%;
+}
