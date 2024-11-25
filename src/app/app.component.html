@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#courses">Courses</a>
+                    <a class="nav-link" [routerLink]="['/my-courses']" routerLinkActive="router-link-active">My Courses</a>
                 </li>
                 @if (loggedUserData.userId == 0) {
                     <li class="nav-item">
@@ -49,9 +49,9 @@
                     <div class="col-12 text-center">
                         <div class="btn-group">
                             <button type="button" [class]="isLoginFormVisiable ? 'btn btn-primary': 'btn btn-success' "
-                                (click)="toggleForm(false)">Register</button>
+                                (click)="toggleForm(true)">Register</button>
                             <button type="button" [class]="!isLoginFormVisiable ? 'btn btn-primary': 'btn btn-success' "
-                                (click)="toggleForm(true)">Login</button>
+                                (click)="toggleForm(false)">Login</button>
                         </div>
                     </div>
                 </div>

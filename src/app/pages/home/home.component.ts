@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit {
   }
 
   onEnroll(courseId: number) {
-    debugger
     if (this.loggedUserData.userId == 0) {
       alert("Please Login First To Enroll")
     } else {
@@ -76,7 +75,7 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  
+
 
   getCourseVideos(courseId: number) {
     this.masterSrv.getCourseVideosbyCourseId(courseId).subscribe((res: IApiResponse) => {

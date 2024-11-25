@@ -32,4 +32,8 @@ export class MasterService {
     return this.http.post<IApiResponse>(`${this.apiUrl}CreateNewEnrollment`, obj)
   }
 
+  getEnrolledCourseByUserId(id:number): Observable<IApiResponse>{
+    return this.http.get<IApiResponse>(`${this.apiUrl}GetEnrolledCourseByUserId?userid=${id}`)
+  }
+
 }

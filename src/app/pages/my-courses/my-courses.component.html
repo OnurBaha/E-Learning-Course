@@ -1,1 +1,75 @@
-<p>my-courses works!</p>
+
+
+<!-- Main Section with Courses and Trending Courses -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Courses Section (Left Side) -->
+        <div class="col-lg-9">
+            <section id="courses" class="main-section">
+                <h2 class="text-center">Our Courses</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Course Item -->
+                    @for (item of courseList; track $index) {
+                    <div class="col">
+                        <div class="card h-100">
+                            <!-- <img [src]="item.thumbnailUrl" class="card-img-top" alt="Course 1"> -->
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*odW0CyTVxMVt5s3yhjjOhw.png"
+                                class="card-img-top" alt="Course 1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.courseName}} </h5>
+                                <p class="card-text" [title]="item.courseDescription">{{item.courseDescription |
+                                    slice:0:90}}...</p>
+                                <a class="btn btn-primary">Start Learning</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </section>
+        </div>
+
+        <!-- Trending Courses Section (Right Side) -->
+        <div class="col-lg-3">
+            <section id="trending" class="trending-section">
+                <h2 class="text-center">Trending Courses</h2>
+                <div class="mb-3">
+                    <div class="card">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Full Stack Development</h5>
+                            <a href="#course-details" class="btn btn-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="card">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Advanced JavaScript</h5>
+                            <a href="#course-details" class="btn btn-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="card">
+                        <img src="https://i.ytimg.com/vi/FDIj5Vklnlc/maxresdefault.jpg" class="card-img-top"
+                            alt="Trending Course 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Learning with Python</h5>
+                            <a href="#course-details" class="btn btn-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 CourseHub. All rights reserved.</p>
+    </div>
+</footer>

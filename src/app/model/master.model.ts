@@ -105,3 +105,14 @@ export class IEnrollment{
         this.userId = 0;
     }
 }
+
+export interface IEnrollmentCourse{
+    enrollmentId:number
+    userId:number
+    courseId:number
+    enrollDate:string
+    isCompleted:boolean
+    courseName:string
+    thambnailUrl:string
+    courseDescription:string
+}
