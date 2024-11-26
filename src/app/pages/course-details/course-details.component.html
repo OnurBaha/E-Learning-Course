@@ -4,30 +4,14 @@
 <h5 class="text-center">Course Videos</h5>
 <ul class="list-group list-group-flush">
     <!-- Video 1 -->
-    <li class="list-group-item bg-transparent">
-        <a href="?video=1" class="text-light">1. Introduction to HTML</a>
-        <span class="badge bg-success float-end">Watched</span> <!-- Status: Watched -->
-    </li>
-    <!-- Video 2 -->
-    <li class="list-group-item bg-transparent">
-        <a href="?video=2" class="text-light">2. HTML Basics</a>
-        <span class="badge bg-warning float-end">New</span> <!-- Status: New -->
-    </li>
-    <!-- Video 3 -->
-    <li class="list-group-item bg-transparent">
-        <a href="?video=3" class="text-light">3. Introduction to CSS</a>
-        <span class="badge bg-success float-end">Watched</span> <!-- Status: Watched -->
-    </li>
-    <!-- Video 4 -->
-    <li class="list-group-item bg-transparent">
-        <a href="?video=4" class="text-light">4. CSS Grid and Flexbox</a>
-        <span class="badge bg-warning float-end">New</span> <!-- Status: New -->
-    </li>
-    <!-- Video 5 -->
-    <li class="list-group-item bg-transparent">
-        <a href="?video=5" class="text-light">5. JavaScript Basics</a>
-        <span class="badge bg-success float-end">Watched</span> <!-- Status: Watched -->
-    </li>
+     @for (item of videoList; track $index) {    
+        <li class="list-group-item bg-transparent">
+            <a href="?video=1" class="text-light">{{$index+1}} {{item.videoTitle}}</a>
+            <span class="badge bg-success float-end">Watched</span> <!-- Status: Watched -->
+        </li>
+     }
+    
+     
 </ul>
 </div>
 
